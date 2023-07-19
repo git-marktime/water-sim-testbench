@@ -127,8 +127,8 @@ func main() {
 		println("water 2: " + strconv.FormatFloat(float64(water2.Volume), 'f', -1, 32) + " cubic meters")
 		println("water 2: " + strconv.FormatFloat(float64(water2.Height), 'f', -1, 32) + " meters\n")
 
-		println("valve: " + strconv.FormatFloat(float64(intervalve.VolumetricFlowRate), 'f', -1, 32) + "cubic m/s")
-		println("valve: " + strconv.FormatFloat(float64(intervalve.Velocity), 'f', -1, 32) + "m/s\n")
+		println("valve: " + strconv.FormatFloat(float64(intervalve.VolumetricFlowRate), 'f', -1, 32) + " cubic m/s")
+		println("valve: " + strconv.FormatFloat(float64(intervalve.Velocity), 'f', -1, 32) + " m/s\n")
 
 		cursor.Up(9)
 	}
