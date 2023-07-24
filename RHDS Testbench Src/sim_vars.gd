@@ -88,7 +88,7 @@ func computeValve(valve: Valve, pullReservoir: Reservoir, pushReservoir: Reservo
 
 func computePowerOutput():
 	var turbine_power_coefficient = 0
-	if TurbineHall.Volume >= 100 and TurbineHall.Height <=750:
+	if TurbineHall.Volume >= 100 and TurbineHall.Volume <= 750:
 		turbine_power_coefficient = -0.0000085 * (TurbineHall.Volume-100) * (TurbineHall.Volume-750)
 	else:
 		turbine_power_coefficient = 0
