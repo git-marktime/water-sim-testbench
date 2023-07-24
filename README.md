@@ -2,7 +2,17 @@
 
 # RHDS TestBench
 
+---
+
   This is a small piece of a much larger project. If bugs are found, please open an issue. The purpose of this program is to break it so I can fix the larger project.
+
+### To Do
+
+- [ ] System Malfunctions
+
+- [ ] Annunciators and Warning System
+
+- [ ] Variable Power Demand
 
 ### Resources Used
 
@@ -24,8 +34,6 @@
 
 - [Trello](https://trello.com/b/bppNE9o1/dydroham)
 
-
-
 ### Math Formulas Used
 
 $$
@@ -35,5 +43,3 @@ $$
 $$
 T_{eff}=-0.0000085\left(T_v-100\right)\left(T_v-750\right)
 $$
-
-
