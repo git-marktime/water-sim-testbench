@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://xiijgajp834f"]
+[gd_scene load_steps=30 format=3 uid="uid://xiijgajp834f"]
 
 [ext_resource type="Texture2D" uid="uid://dcgfcrdb7oroe" path="res://Assets/Background.png" id="1_4jltx"]
 [ext_resource type="Script" path="res://Scripts/simhandler.gd" id="1_7p1cq"]
@@ -31,7 +31,7 @@ subpixel_positioning = 0
 [sub_resource type="SystemFont" id="SystemFont_h12l2"]
 font_names = PackedStringArray("Consolas")
 
-[sub_resource type="Image" id="Image_oxxcm"]
+[sub_resource type="Image" id="Image_jcwqh"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -41,7 +41,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_gryrp"]
-image = SubResource("Image_oxxcm")
+image = SubResource("Image_jcwqh")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5o1"]
 content_margin_left = 4.0
@@ -87,6 +87,9 @@ HSlider/icons/tick = SubResource("ImageTexture_gryrp")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_8a5o1")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_yijye")
 HSlider/styles/slider = SubResource("StyleBoxFlat_cy2v4")
+
+[sub_resource type="SystemFont" id="SystemFont_48eqa"]
+font_names = PackedStringArray("Courier New")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7p1cq")
@@ -1561,4 +1564,16 @@ theme_override_font_sizes/normal_font_size = 200
 text = "E-Reserves"
 scroll_active = false
 shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="RHDSTestBenchLabel" type="RichTextLabel" parent="."]
+offset_left = 153.0
+offset_top = 591.0
+offset_right = 1009.0
+offset_bottom = 663.0
+size_flags_vertical = 8
+theme_override_colors/default_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_48eqa")
+theme_override_font_sizes/normal_font_size = 30
+text = "Realistic Hydroelectric Dam Simulator Testbench"
 metadata/_edit_use_anchors_ = true
