@@ -86,8 +86,52 @@ func computeValve(valve: Valve, pullReservoir: Reservoir, pushReservoir: Reservo
 	else:
 		valve.Blocked = true
 
-var Reservoir1 = initReservoir(100, 100, 5, 75_000)
-var Reservoir2 = initReservoir(100, 100, 0, 10)
-var Reservoir3 = initReservoir(100, 100, 0, 75_000)
-var MainValve = initValve(5, 0.5)
-var SecondValve = initValve(5, 0.5)
+func computePowerOutput():
+	var turbine_power_coefficient = 0
+	if TurbineHall.Volume >= 100 and TurbineHall.Height <=750:
+		turbine_power_coefficient = -0.0000085 * (TurbineHall.Volume-100) * (TurbineHall.Volume-750)
+	else:
+		turbine_power_coefficient = 0
+	
+	var turbine_radius = 1 # m
+	
+	var a = pow(TurbineInlet.Velocity, 2) # m/s ^2s
+	var m = 1027 * 3.14 * pow(TurbineInlet.Diameter/2, 2) # kg
+	var F = m * a # newtons
+	
+	var angle = 0
+	if TurbineInlet.Velocity > 0:
+		angle = turbine_radius/TurbineInlet.Velocity # angular velocity, rad/s
+	else:
+		angle = 0
+	var disp = angle * turbine_radius # m
+	var w = F * disp # joules
+	var power = w * turbine_power_coefficient # joules / sec or watts
+	PowerOutput = power
+	TurbineEfficiency = turbine_power_coefficient
+	
+	if PowerOutput >= PowerDemand - 10 and PowerOutput <= PowerDemand + 10:
+		DemandMet = true
+	else:
+		DemandMet = false
+
+var UpperReservoir = initReservoir(840, 1462, 90, 122_808_000)
+var SluiceGate = initValve(6, 2)
+var Penstock = initReservoir(100, 2, 0, 100)
+var TurbineInlet = initValve(5, 0.5)
+var TurbineHall = initReservoir(5, 20, 0, 1000)
+var turbineOutlet = initValve(5.5, 0.6)
+var DraftTube = initReservoir(10, 1.5, 0, 45)
+var DraftTubeOutlet = initValve(4.5, 0.5)
+var LowerReservoir = initReservoir(1_530, 10, 40, 764_805)
+var PumpBackValve = initValve(2, 0.5)
+
+var Spillway = initValve(7.5, 1)
+var WATERDUMP = initReservoir(0.1, 0.1, 0, 1.79769e308)
+var ReservePump = initValve(6, 1)
+var EmergencyReserves = initReservoir(1.79769e308, 1.79769e308, 1.79769e308, 1.79769e308)
+
+var PowerOutput = 0
+var PowerDemand = randi_range(100, 800)
+var TurbineEfficiency = 0
+var DemandMet = false

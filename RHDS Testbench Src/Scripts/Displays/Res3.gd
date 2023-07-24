@@ -1,7 +1,7 @@
 extends Sprite2D
 
 func _process(_delta):
-	var targetchecker = SimVars.Reservoir3
+	var targetchecker = SimVars.Penstock
 	var displayvalue = targetchecker.Volume
 	var decimaltruncate = 0.01
 	

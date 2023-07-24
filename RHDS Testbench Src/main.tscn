@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://fpfgiev3g5cl"]
+[gd_scene load_steps=29 format=3 uid="uid://xiijgajp834f"]
 
 [ext_resource type="Texture2D" uid="uid://dcgfcrdb7oroe" path="res://Assets/Background.png" id="1_4jltx"]
 [ext_resource type="Script" path="res://Scripts/simhandler.gd" id="1_7p1cq"]
@@ -6,15 +6,32 @@
 [ext_resource type="Script" path="res://Scripts/Displays/Res1.gd" id="4_dngi4"]
 [ext_resource type="Script" path="res://Scripts/Displays/Res2.gd" id="5_5ri3i"]
 [ext_resource type="Script" path="res://Scripts/Displays/Res3.gd" id="6_4cdcx"]
-[ext_resource type="Script" path="res://Scripts/Displays/Valve.gd" id="7_v6476"]
+[ext_resource type="Script" path="res://Scripts/Displays/Res4.gd" id="7_ql6dc"]
 [ext_resource type="Script" path="res://Scripts/Sliders/Slider.gd" id="8_23lim"]
-[ext_resource type="Script" path="res://Scripts/Displays/Valve2.gd" id="8_tn4wo"]
+[ext_resource type="Script" path="res://Scripts/Displays/Res5.gd" id="8_l3hkx"]
+[ext_resource type="Script" path="res://Scripts/Displays/TurbineEfficiency.gd" id="10_04h7a"]
 [ext_resource type="Script" path="res://Scripts/Sliders/Slider2.gd" id="10_8ykf3"]
+[ext_resource type="Texture2D" uid="uid://c8dlqc834igte" path="res://Assets/Number Display Short.png" id="10_bb5ge"]
+[ext_resource type="Script" path="res://Scripts/Displays/PowerOutut.gd" id="10_vimab"]
+[ext_resource type="Script" path="res://Scripts/Sliders/Slider3.gd" id="12_4kxxe"]
+[ext_resource type="Script" path="res://Scripts/Displays/PowerDemand.gd" id="12_nxhws"]
+[ext_resource type="Script" path="res://Scripts/Sliders/Slider4.gd" id="13_5d3p0"]
+[ext_resource type="Script" path="res://Scripts/Sliders/Slider5.gd" id="14_hugx0"]
+[ext_resource type="Script" path="res://Scripts/Sliders/Slider6.gd" id="15_4pna8"]
+[ext_resource type="Script" path="res://Scripts/Sliders/Slider7.gd" id="16_ha0sy"]
 
 [sub_resource type="SystemFont" id="SystemFont_1wg0h"]
 font_names = PackedStringArray("Consolas")
+subpixel_positioning = 0
 
-[sub_resource type="Image" id="Image_r0a53"]
+[sub_resource type="SystemFont" id="SystemFont_y8bmv"]
+font_names = PackedStringArray("Consolas")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_h12l2"]
+font_names = PackedStringArray("Consolas")
+
+[sub_resource type="Image" id="Image_oxxcm"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -24,7 +41,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_gryrp"]
-image = SubResource("Image_r0a53")
+image = SubResource("Image_oxxcm")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5o1"]
 content_margin_left = 4.0
@@ -71,9 +88,6 @@ HSlider/styles/grabber_area = SubResource("StyleBoxFlat_8a5o1")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_yijye")
 HSlider/styles/slider = SubResource("StyleBoxFlat_cy2v4")
 
-[sub_resource type="SystemFont" id="SystemFont_h12l2"]
-font_names = PackedStringArray("Consolas")
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7p1cq")
 
@@ -89,7 +103,7 @@ anchors_preset = -1
 anchor_left = 0.0251736
 anchor_top = -0.0601852
 anchor_right = 0.347222
-anchor_bottom = 0.532407
+anchor_bottom = 0.912037
 size_flags_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
@@ -136,7 +150,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
 theme_override_font_sizes/normal_font_size = 100
-text = "Reservoir 1 Vol."
+text = "Upper Reservoir Vol."
 scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
@@ -149,92 +163,22 @@ anchor_left = 0.785533
 anchor_top = 0.571066
 anchor_right = 0.905325
 anchor_bottom = 0.652547
-offset_left = -729.744
+offset_left = -795.531
 offset_top = -540.0
-offset_right = -729.744
+offset_right = -795.531
 offset_bottom = -540.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
 theme_override_font_sizes/normal_font_size = 100
-text = "m³"
-scroll_active = false
-shortcut_keys_enabled = false
-metadata/_edit_use_anchors_ = true
-
-[node name="Res2" type="Sprite2D" parent="Displays/VBoxContainer"]
-position = Vector2(190, 237)
-scale = Vector2(0.182407, 0.182407)
-texture = ExtResource("2_kdmyk")
-script = ExtResource("5_5ri3i")
-metadata/Value = 0.0
-
-[node name="Value" type="RichTextLabel" parent="Displays/VBoxContainer/Res2"]
-anchors_preset = -1
-anchor_left = 0.0460025
-anchor_top = 0.332487
-anchor_right = 0.785586
-anchor_bottom = 0.555635
-offset_left = -960.0
-offset_top = -540.0
-offset_right = -960.0
-offset_bottom = -540.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
-theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
-theme_override_font_sizes/normal_font_size = 250
-text = "0000000000"
-scroll_active = false
-shortcut_keys_enabled = false
-metadata/_edit_use_anchors_ = true
-
-[node name="ValueTitle" type="RichTextLabel" parent="Displays/VBoxContainer/Res2"]
-clip_contents = false
-anchors_preset = -1
-anchor_left = 0.0745557
-anchor_top = 0.571066
-anchor_right = 0.479764
-anchor_bottom = 0.652547
-offset_left = -960.0
-offset_top = -540.0
-offset_right = -960.0
-offset_bottom = -540.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
-theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
-theme_override_font_sizes/normal_font_size = 100
-text = "Reservoir 2 Vol."
-scroll_active = false
-autowrap_mode = 0
-shortcut_keys_enabled = false
-metadata/_edit_use_anchors_ = true
-
-[node name="Unit" type="RichTextLabel" parent="Displays/VBoxContainer/Res2"]
-clip_contents = false
-anchors_preset = -1
-anchor_left = 0.785533
-anchor_top = 0.571066
-anchor_right = 0.905325
-anchor_bottom = 0.652547
-offset_left = -729.744
-offset_top = -540.0
-offset_right = -729.744
-offset_bottom = -540.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
-theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
-theme_override_font_sizes/normal_font_size = 100
-text = "m³"
+text = "km³"
 scroll_active = false
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Res3" type="Sprite2D" parent="Displays/VBoxContainer"]
-position = Vector2(190, 345)
+position = Vector2(190, 232)
 scale = Vector2(0.182407, 0.182407)
 texture = ExtResource("2_kdmyk")
 script = ExtResource("6_4cdcx")
@@ -276,7 +220,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
 theme_override_font_sizes/normal_font_size = 100
-text = "Reservoir 3 Vol."
+text = "Penstock Vol."
 scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
@@ -289,10 +233,10 @@ anchor_left = 0.785533
 anchor_top = 0.571066
 anchor_right = 0.905325
 anchor_bottom = 0.652547
-offset_left = -729.744
-offset_top = -540.0
-offset_right = -729.744
-offset_bottom = -540.0
+offset_left = -740.709
+offset_top = -539.999
+offset_right = -740.709
+offset_bottom = -539.999
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
@@ -303,14 +247,14 @@ scroll_active = false
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
 
-[node name="Valve" type="Sprite2D" parent="Displays/VBoxContainer"]
-position = Vector2(558.111, 132.5)
+[node name="Res4" type="Sprite2D" parent="Displays/VBoxContainer"]
+position = Vector2(190, 332)
 scale = Vector2(0.182407, 0.182407)
 texture = ExtResource("2_kdmyk")
-script = ExtResource("7_v6476")
+script = ExtResource("7_ql6dc")
 metadata/Value = 0.0
 
-[node name="Value" type="RichTextLabel" parent="Displays/VBoxContainer/Valve"]
+[node name="Value" type="RichTextLabel" parent="Displays/VBoxContainer/Res4"]
 anchors_preset = -1
 anchor_left = 0.0460025
 anchor_top = 0.332487
@@ -330,7 +274,7 @@ scroll_active = false
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
 
-[node name="ValueTitle" type="RichTextLabel" parent="Displays/VBoxContainer/Valve"]
+[node name="ValueTitle" type="RichTextLabel" parent="Displays/VBoxContainer/Res4"]
 clip_contents = false
 anchors_preset = -1
 anchor_left = 0.0745557
@@ -346,41 +290,41 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
 theme_override_font_sizes/normal_font_size = 100
-text = "Valve 1 Vol. Flow"
+text = "Turbine Hall Vol."
 scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
 
-[node name="Unit" type="RichTextLabel" parent="Displays/VBoxContainer/Valve"]
+[node name="Unit" type="RichTextLabel" parent="Displays/VBoxContainer/Res4"]
 clip_contents = false
 anchors_preset = -1
 anchor_left = 0.785533
 anchor_top = 0.571066
 anchor_right = 0.905325
 anchor_bottom = 0.652547
-offset_left = -850.354
-offset_top = -540.0
-offset_right = -850.354
-offset_bottom = -540.0
+offset_left = -740.709
+offset_top = -539.999
+offset_right = -740.709
+offset_bottom = -539.999
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
 theme_override_font_sizes/normal_font_size = 100
-text = "m³/s"
+text = "m³"
 scroll_active = false
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
 
-[node name="Valve2" type="Sprite2D" parent="Displays/VBoxContainer"]
-position = Vector2(558.111, 297.5)
+[node name="Res5" type="Sprite2D" parent="Displays/VBoxContainer"]
+position = Vector2(190, 432)
 scale = Vector2(0.182407, 0.182407)
 texture = ExtResource("2_kdmyk")
-script = ExtResource("8_tn4wo")
+script = ExtResource("8_l3hkx")
 metadata/Value = 0.0
 
-[node name="Value" type="RichTextLabel" parent="Displays/VBoxContainer/Valve2"]
+[node name="Value" type="RichTextLabel" parent="Displays/VBoxContainer/Res5"]
 anchors_preset = -1
 anchor_left = 0.0460025
 anchor_top = 0.332487
@@ -400,7 +344,7 @@ scroll_active = false
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
 
-[node name="ValueTitle" type="RichTextLabel" parent="Displays/VBoxContainer/Valve2"]
+[node name="ValueTitle" type="RichTextLabel" parent="Displays/VBoxContainer/Res5"]
 clip_contents = false
 anchors_preset = -1
 anchor_left = 0.0745557
@@ -416,29 +360,310 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
 theme_override_font_sizes/normal_font_size = 100
-text = "Valve 2 Vol. Flow"
+text = "Draft Tube Vol."
 scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
 
-[node name="Unit" type="RichTextLabel" parent="Displays/VBoxContainer/Valve2"]
+[node name="Unit" type="RichTextLabel" parent="Displays/VBoxContainer/Res5"]
 clip_contents = false
 anchors_preset = -1
 anchor_left = 0.785533
 anchor_top = 0.571066
 anchor_right = 0.905325
 anchor_bottom = 0.652547
-offset_left = -850.354
+offset_left = -740.709
+offset_top = -539.999
+offset_right = -740.709
+offset_bottom = -539.999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
+theme_override_font_sizes/normal_font_size = 100
+text = "m³"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Res2" type="Sprite2D" parent="Displays/VBoxContainer"]
+position = Vector2(190, 532)
+scale = Vector2(0.182407, 0.182407)
+texture = ExtResource("2_kdmyk")
+script = ExtResource("5_5ri3i")
+metadata/Value = 0.0
+
+[node name="Value" type="RichTextLabel" parent="Displays/VBoxContainer/Res2"]
+anchors_preset = -1
+anchor_left = 0.0460025
+anchor_top = 0.332487
+anchor_right = 0.785586
+anchor_bottom = 0.555635
+offset_left = -960.0
 offset_top = -540.0
-offset_right = -850.354
+offset_right = -960.0
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
+theme_override_font_sizes/normal_font_size = 250
+text = "0000000000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="ValueTitle" type="RichTextLabel" parent="Displays/VBoxContainer/Res2"]
+clip_contents = false
+anchors_preset = -1
+anchor_left = 0.0745557
+anchor_top = 0.571066
+anchor_right = 0.479764
+anchor_bottom = 0.652547
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -960.0
 offset_bottom = -540.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
 theme_override_font_sizes/normal_font_size = 100
-text = "m³/s"
+text = "Lower Reservoir Vol."
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Unit" type="RichTextLabel" parent="Displays/VBoxContainer/Res2"]
+clip_contents = false
+anchors_preset = -1
+anchor_left = 0.785533
+anchor_top = 0.571066
+anchor_right = 0.905325
+anchor_bottom = 0.652547
+offset_left = -855.836
+offset_top = -540.0
+offset_right = -855.836
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
+theme_override_font_sizes/normal_font_size = 100
+text = "dam³"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="TurbineEfficiency" type="Sprite2D" parent="Displays"]
+position = Vector2(984.667, 108.625)
+scale = Vector2(0.139583, 0.139583)
+texture = ExtResource("10_bb5ge")
+script = ExtResource("10_04h7a")
+
+[node name="ValueTitle" type="RichTextLabel" parent="Displays/TurbineEfficiency"]
+clip_contents = false
+anchors_preset = -1
+anchor_left = 0.29602
+anchor_top = 0.721393
+anchor_right = 0.701228
+anchor_bottom = 0.802874
+offset_left = -1081.79
+offset_top = -539.999
+offset_right = -1081.79
+offset_bottom = -539.999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
+theme_override_font_sizes/normal_font_size = 100
+text = "Turbine Coefficient"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Value" type="Label" parent="Displays/TurbineEfficiency"]
+offset_left = -793.0
+offset_top = -298.0
+offset_right = 812.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_y8bmv")
+theme_override_font_sizes/font_size = 450
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Unit" type="RichTextLabel" parent="Displays/TurbineEfficiency"]
+clip_contents = false
+anchors_preset = -1
+anchor_left = 0.29602
+anchor_top = 0.721393
+anchor_right = 0.701228
+anchor_bottom = 0.802874
+offset_left = 214.924
+offset_top = -604.477
+offset_right = 214.924
+offset_bottom = -604.477
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
+theme_override_font_sizes/normal_font_size = 100
+text = "%"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="PowerOutput" type="Sprite2D" parent="Displays"]
+position = Vector2(984.667, 258.625)
+scale = Vector2(0.139583, 0.139583)
+texture = ExtResource("10_bb5ge")
+script = ExtResource("10_vimab")
+
+[node name="ValueTitle" type="RichTextLabel" parent="Displays/PowerOutput"]
+clip_contents = false
+anchors_preset = -1
+anchor_left = 0.29602
+anchor_top = 0.721393
+anchor_right = 0.701228
+anchor_bottom = 0.802874
+offset_left = -902.687
+offset_top = -540.0
+offset_right = -902.687
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
+theme_override_font_sizes/normal_font_size = 100
+text = "Power Output"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Unit" type="RichTextLabel" parent="Displays/PowerOutput"]
+clip_contents = false
+anchors_preset = -1
+anchor_left = 0.29602
+anchor_top = 0.721393
+anchor_right = 0.701228
+anchor_bottom = 0.802874
+offset_left = 157.609
+offset_top = -597.313
+offset_right = 157.609
+offset_bottom = -597.313
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
+theme_override_font_sizes/normal_font_size = 100
+text = "kW"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Value" type="Label" parent="Displays/PowerOutput"]
+offset_left = -793.0
+offset_top = -298.0
+offset_right = 812.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_y8bmv")
+theme_override_font_sizes/font_size = 450
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PowerDemand" type="Sprite2D" parent="Displays"]
+position = Vector2(984.667, 408.625)
+scale = Vector2(0.139583, 0.139583)
+texture = ExtResource("10_bb5ge")
+script = ExtResource("12_nxhws")
+
+[node name="ValueTitle" type="RichTextLabel" parent="Displays/PowerDemand"]
+clip_contents = false
+anchors_preset = -1
+anchor_left = 0.29602
+anchor_top = 0.721393
+anchor_right = 0.701228
+anchor_bottom = 0.802874
+offset_left = -902.687
+offset_top = -540.0
+offset_right = -902.687
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
+theme_override_font_sizes/normal_font_size = 100
+text = "Power Demand"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Unit" type="RichTextLabel" parent="Displays/PowerDemand"]
+clip_contents = false
+anchors_preset = -1
+anchor_left = 0.29602
+anchor_top = 0.721393
+anchor_right = 0.701228
+anchor_bottom = 0.802874
+offset_left = 157.609
+offset_top = -597.313
+offset_right = 157.609
+offset_bottom = -597.313
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_1wg0h")
+theme_override_font_sizes/normal_font_size = 100
+text = "kW"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Value" type="Label" parent="Displays/PowerDemand"]
+offset_left = -793.0
+offset_top = -298.0
+offset_right = 812.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_y8bmv")
+theme_override_font_sizes/font_size = 450
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberDisplay2" type="Sprite2D" parent="Displays/PowerDemand"]
+position = Vector2(-19.1064, 568.658)
+scale = Vector2(0.495441, 0.495441)
+texture = ExtResource("2_kdmyk")
+
+[node name="Value2" type="RichTextLabel" parent="Displays/PowerDemand/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.408029
+anchor_top = 1.56162
+anchor_right = 1.14605
+anchor_bottom = 1.76254
+offset_left = -1477.51
+offset_top = -1802.23
+offset_right = -1477.51
+offset_bottom = -1802.23
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.17, 0.17, 0.17, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 250
+text = "DEMAND MET"
 scroll_active = false
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
@@ -446,95 +671,894 @@ metadata/_edit_use_anchors_ = true
 [node name="Controllers" type="Node" parent="."]
 
 [node name="Slider" type="HSlider" parent="Controllers"]
-offset_left = 438.0
-offset_top = 144.0
-offset_right = 742.0
-offset_bottom = 160.0
+anchors_preset = -1
+anchor_left = 0.354167
+anchor_top = 0.146605
+anchor_right = 0.532986
+anchor_bottom = 0.171296
 theme = SubResource("Theme_qhkhn")
 script = ExtResource("8_23lim")
+metadata/_edit_use_anchors_ = true
 
 [node name="NumberDisplay" type="Sprite2D" parent="Controllers/Slider"]
-position = Vector2(142, 33)
-scale = Vector2(0.0666667, 0.0666667)
-texture = ExtResource("2_kdmyk")
+position = Vector2(38.1113, 35.875)
+scale = Vector2(0.0386574, 0.0386574)
+texture = ExtResource("10_bb5ge")
 
-[node name="Percent" type="RichTextLabel" parent="Controllers/Slider"]
-layout_mode = 1
+[node name="Value" type="RichTextLabel" parent="Controllers/Slider/NumberDisplay"]
 anchors_preset = -1
-anchor_left = 0.601974
-anchor_top = 1.375
-anchor_right = 1.34211
-anchor_bottom = 16.0
+anchor_left = 0.0242718
+anchor_top = 1.5625
+anchor_right = 0.764406
+anchor_bottom = 16.1875
+offset_left = -903.133
+offset_top = -1942.95
+offset_right = -903.133
+offset_bottom = -1942.95
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 600
+text = "000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Percent" type="RichTextLabel" parent="Controllers/Slider/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.271845
+anchor_top = 1.5625
+anchor_right = 1.01198
+anchor_bottom = 16.1875
+offset_left = -59.1924
+offset_top = -1942.95
+offset_right = -59.1924
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
 text = "%"
 scroll_active = false
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
 
-[node name="Value" type="RichTextLabel" parent="Controllers/Slider"]
-layout_mode = 1
+[node name="NumberDisplay2" type="Sprite2D" parent="Controllers/Slider"]
+position = Vector2(142, 36)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Unit" type="RichTextLabel" parent="Controllers/Slider/NumberDisplay2"]
 anchors_preset = -1
-anchor_left = 0.276316
-anchor_top = 1.375
-anchor_right = 1.01645
-anchor_bottom = 16.0
+anchor_left = 0.839806
+anchor_top = 2.375
+anchor_right = 1.57994
+anchor_bottom = 17.0
+offset_left = -1057.43
+offset_top = -2535.0
+offset_right = -1057.43
+offset_bottom = -2535.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
-theme_override_font_sizes/normal_font_size = 25
-text = "000"
+theme_override_font_sizes/normal_font_size = 150
+text = "m³/s"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Value2" type="RichTextLabel" parent="Controllers/Slider/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.407767
+anchor_top = 1.5625
+anchor_right = 1.1479
+anchor_bottom = 16.1875
+offset_left = -1652.91
+offset_top = -1852.5
+offset_right = -1652.91
+offset_bottom = -1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 400
+text = "000000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay3" type="Sprite2D" parent="Controllers/Slider"]
+position = Vector2(103, -21)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Title" type="RichTextLabel" parent="Controllers/Slider/NumberDisplay3"]
+anchors_preset = -1
+anchor_left = 0.257281
+anchor_top = -1.8125
+anchor_right = 1.06978
+anchor_bottom = -1.57639
+offset_left = -1138.98
+offset_top = 1852.5
+offset_right = -1138.98
+offset_bottom = 1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 200
+text = "Sluice Gate"
 scroll_active = false
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Slider2" type="HSlider" parent="Controllers"]
-offset_left = 438.0
-offset_top = 309.0
-offset_right = 742.0
-offset_bottom = 325.0
+anchors_preset = -1
+anchor_left = 0.354167
+anchor_top = 0.146605
+anchor_right = 0.532986
+anchor_bottom = 0.171296
+offset_left = 1.0
+offset_top = 100.0
+offset_right = 1.0
+offset_bottom = 100.0
 theme = SubResource("Theme_qhkhn")
 script = ExtResource("10_8ykf3")
+metadata/_edit_use_anchors_ = true
 
 [node name="NumberDisplay" type="Sprite2D" parent="Controllers/Slider2"]
-position = Vector2(142, 33)
-scale = Vector2(0.0666667, 0.0666667)
-texture = ExtResource("2_kdmyk")
+position = Vector2(38.1113, 35.875)
+scale = Vector2(0.0386574, 0.0386574)
+texture = ExtResource("10_bb5ge")
 
-[node name="Percent" type="RichTextLabel" parent="Controllers/Slider2"]
-layout_mode = 1
+[node name="Value" type="RichTextLabel" parent="Controllers/Slider2/NumberDisplay"]
 anchors_preset = -1
-anchor_left = 0.601974
-anchor_top = 1.375
-anchor_right = 1.34211
-anchor_bottom = 16.0
+anchor_left = 0.0242718
+anchor_top = 1.5625
+anchor_right = 0.764406
+anchor_bottom = 16.1875
+offset_left = -903.133
+offset_top = -1942.95
+offset_right = -903.133
+offset_bottom = -1942.95
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 600
+text = "000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Percent" type="RichTextLabel" parent="Controllers/Slider2/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.271845
+anchor_top = 1.5625
+anchor_right = 1.01198
+anchor_bottom = 16.1875
+offset_left = -59.1924
+offset_top = -1942.95
+offset_right = -59.1924
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
 text = "%"
 scroll_active = false
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
 
-[node name="Value" type="RichTextLabel" parent="Controllers/Slider2"]
-layout_mode = 1
+[node name="NumberDisplay2" type="Sprite2D" parent="Controllers/Slider2"]
+position = Vector2(142, 36)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Unit" type="RichTextLabel" parent="Controllers/Slider2/NumberDisplay2"]
 anchors_preset = -1
-anchor_left = 0.276316
-anchor_top = 1.375
-anchor_right = 1.01645
-anchor_bottom = 16.0
+anchor_left = 0.839806
+anchor_top = 2.375
+anchor_right = 1.57994
+anchor_bottom = 17.0
+offset_left = -1057.43
+offset_top = -2535.0
+offset_right = -1057.43
+offset_bottom = -2535.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 150
+text = "m³/s"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Value2" type="RichTextLabel" parent="Controllers/Slider2/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.407767
+anchor_top = 1.5625
+anchor_right = 1.1479
+anchor_bottom = 16.1875
+offset_left = -1652.91
+offset_top = -1852.5
+offset_right = -1652.91
+offset_bottom = -1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 400
+text = "000000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay3" type="Sprite2D" parent="Controllers/Slider2"]
+position = Vector2(103, -21)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Title" type="RichTextLabel" parent="Controllers/Slider2/NumberDisplay3"]
+anchors_preset = -1
+anchor_left = 0.257281
+anchor_top = -1.8125
+anchor_right = 1.06978
+anchor_bottom = -1.57639
+offset_left = -1213.98
+offset_top = 1852.5
+offset_right = -1213.98
+offset_bottom = 1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 200
+text = "Turbine Inlet"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Slider3" type="HSlider" parent="Controllers"]
+anchors_preset = -1
+anchor_left = 0.354167
+anchor_top = 0.146605
+anchor_right = 0.532986
+anchor_bottom = 0.171296
+offset_top = 200.0
+offset_bottom = 200.0
+theme = SubResource("Theme_qhkhn")
+script = ExtResource("12_4kxxe")
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay" type="Sprite2D" parent="Controllers/Slider3"]
+position = Vector2(38.1113, 35.875)
+scale = Vector2(0.0386574, 0.0386574)
+texture = ExtResource("10_bb5ge")
+
+[node name="Value" type="RichTextLabel" parent="Controllers/Slider3/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.0242718
+anchor_top = 1.5625
+anchor_right = 0.764406
+anchor_bottom = 16.1875
+offset_left = -903.133
+offset_top = -1942.95
+offset_right = -903.133
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
 text = "000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Percent" type="RichTextLabel" parent="Controllers/Slider3/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.271845
+anchor_top = 1.5625
+anchor_right = 1.01198
+anchor_bottom = 16.1875
+offset_left = -59.1924
+offset_top = -1942.95
+offset_right = -59.1924
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
+text = "%"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay2" type="Sprite2D" parent="Controllers/Slider3"]
+position = Vector2(142, 36)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Unit" type="RichTextLabel" parent="Controllers/Slider3/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.839806
+anchor_top = 2.375
+anchor_right = 1.57994
+anchor_bottom = 17.0
+offset_left = -1057.43
+offset_top = -2535.0
+offset_right = -1057.43
+offset_bottom = -2535.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 150
+text = "m³/s"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Value2" type="RichTextLabel" parent="Controllers/Slider3/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.407767
+anchor_top = 1.5625
+anchor_right = 1.1479
+anchor_bottom = 16.1875
+offset_left = -1652.91
+offset_top = -1852.5
+offset_right = -1652.91
+offset_bottom = -1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 400
+text = "000000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay3" type="Sprite2D" parent="Controllers/Slider3"]
+position = Vector2(103, -21)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Title" type="RichTextLabel" parent="Controllers/Slider3/NumberDisplay3"]
+anchors_preset = -1
+anchor_left = 0.257281
+anchor_top = -1.8125
+anchor_right = 1.06978
+anchor_bottom = -1.57639
+offset_left = -1273.98
+offset_top = 1852.5
+offset_right = -1273.98
+offset_bottom = 1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 200
+text = "Turbine Outlet"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Slider4" type="HSlider" parent="Controllers"]
+anchors_preset = -1
+anchor_left = 0.354167
+anchor_top = 0.146605
+anchor_right = 0.532986
+anchor_bottom = 0.171296
+offset_top = 300.0
+offset_bottom = 300.0
+theme = SubResource("Theme_qhkhn")
+script = ExtResource("13_5d3p0")
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay" type="Sprite2D" parent="Controllers/Slider4"]
+position = Vector2(38.1113, 35.875)
+scale = Vector2(0.0386574, 0.0386574)
+texture = ExtResource("10_bb5ge")
+
+[node name="Value" type="RichTextLabel" parent="Controllers/Slider4/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.0242718
+anchor_top = 1.5625
+anchor_right = 0.764406
+anchor_bottom = 16.1875
+offset_left = -903.133
+offset_top = -1942.95
+offset_right = -903.133
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
+text = "000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Percent" type="RichTextLabel" parent="Controllers/Slider4/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.271845
+anchor_top = 1.5625
+anchor_right = 1.01198
+anchor_bottom = 16.1875
+offset_left = -59.1924
+offset_top = -1942.95
+offset_right = -59.1924
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
+text = "%"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay2" type="Sprite2D" parent="Controllers/Slider4"]
+position = Vector2(142, 36)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Unit" type="RichTextLabel" parent="Controllers/Slider4/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.839806
+anchor_top = 2.375
+anchor_right = 1.57994
+anchor_bottom = 17.0
+offset_left = -1057.43
+offset_top = -2535.0
+offset_right = -1057.43
+offset_bottom = -2535.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 150
+text = "m³/s"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Value2" type="RichTextLabel" parent="Controllers/Slider4/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.407767
+anchor_top = 1.5625
+anchor_right = 1.1479
+anchor_bottom = 16.1875
+offset_left = -1652.91
+offset_top = -1852.5
+offset_right = -1652.91
+offset_bottom = -1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 400
+text = "000000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay3" type="Sprite2D" parent="Controllers/Slider4"]
+position = Vector2(103, -21)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Title" type="RichTextLabel" parent="Controllers/Slider4/NumberDisplay3"]
+anchors_preset = -1
+anchor_left = 0.257281
+anchor_top = -1.8125
+anchor_right = 1.06978
+anchor_bottom = -1.57639
+offset_left = -1198.98
+offset_top = 1852.5
+offset_right = -1198.98
+offset_bottom = 1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 200
+text = "Draft Outlet"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Slider5" type="HSlider" parent="Controllers"]
+anchors_preset = -1
+anchor_left = 0.354167
+anchor_top = 0.146605
+anchor_right = 0.532986
+anchor_bottom = 0.171296
+offset_left = 222.0
+offset_right = 222.0
+theme = SubResource("Theme_qhkhn")
+script = ExtResource("14_hugx0")
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay" type="Sprite2D" parent="Controllers/Slider5"]
+position = Vector2(38.1113, 35.875)
+scale = Vector2(0.0386574, 0.0386574)
+texture = ExtResource("10_bb5ge")
+
+[node name="Value" type="RichTextLabel" parent="Controllers/Slider5/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.0240277
+anchor_top = 1.56292
+anchor_right = 0.576632
+anchor_bottom = 2.06569
+offset_left = -903.133
+offset_top = -1942.95
+offset_right = -903.133
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
+text = "000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Percent" type="RichTextLabel" parent="Controllers/Slider5/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.271975
+anchor_top = 1.56292
+anchor_right = 0.460517
+anchor_bottom = 2.06569
+offset_left = -59.1924
+offset_top = -1942.95
+offset_right = -59.1924
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
+text = "%"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay2" type="Sprite2D" parent="Controllers/Slider5"]
+position = Vector2(142, 36)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Unit" type="RichTextLabel" parent="Controllers/Slider5/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.839806
+anchor_top = 2.375
+anchor_right = 1.01949
+anchor_bottom = 2.5
+offset_left = -1057.43
+offset_top = -2535.0
+offset_right = -1057.43
+offset_bottom = -2535.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 150
+text = "m³/s"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Value2" type="RichTextLabel" parent="Controllers/Slider5/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.407767
+anchor_top = 1.5625
+anchor_right = 1.14787
+anchor_bottom = 1.86806
+offset_left = -1652.91
+offset_top = -1852.5
+offset_right = -1652.91
+offset_bottom = -1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 400
+text = "000000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay3" type="Sprite2D" parent="Controllers/Slider5"]
+position = Vector2(103, -21)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Title" type="RichTextLabel" parent="Controllers/Slider5/NumberDisplay3"]
+anchors_preset = -1
+anchor_left = 0.257281
+anchor_top = -1.8125
+anchor_right = 1.06978
+anchor_bottom = -1.57639
+offset_left = -988.98
+offset_top = 1852.5
+offset_right = -988.98
+offset_bottom = 1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 200
+text = "Pump-Back"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Slider6" type="HSlider" parent="Controllers"]
+anchors_preset = -1
+anchor_left = 0.354167
+anchor_top = 0.146605
+anchor_right = 0.532986
+anchor_bottom = 0.171296
+offset_left = 222.0
+offset_top = 100.0
+offset_right = 222.0
+offset_bottom = 100.0
+theme = SubResource("Theme_qhkhn")
+script = ExtResource("15_4pna8")
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay" type="Sprite2D" parent="Controllers/Slider6"]
+position = Vector2(38.1113, 35.875)
+scale = Vector2(0.0386574, 0.0386574)
+texture = ExtResource("10_bb5ge")
+
+[node name="Value" type="RichTextLabel" parent="Controllers/Slider6/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.0240277
+anchor_top = 1.56292
+anchor_right = 0.576632
+anchor_bottom = 2.06569
+offset_left = -903.133
+offset_top = -1942.95
+offset_right = -903.133
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
+text = "000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Percent" type="RichTextLabel" parent="Controllers/Slider6/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.271975
+anchor_top = 1.56292
+anchor_right = 0.460517
+anchor_bottom = 2.06569
+offset_left = -59.1924
+offset_top = -1942.95
+offset_right = -59.1924
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
+text = "%"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay2" type="Sprite2D" parent="Controllers/Slider6"]
+position = Vector2(142, 36)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Unit" type="RichTextLabel" parent="Controllers/Slider6/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.839806
+anchor_top = 2.375
+anchor_right = 1.01949
+anchor_bottom = 2.5
+offset_left = -1057.43
+offset_top = -2535.0
+offset_right = -1057.43
+offset_bottom = -2535.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 150
+text = "m³/s"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Value2" type="RichTextLabel" parent="Controllers/Slider6/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.407767
+anchor_top = 1.5625
+anchor_right = 1.0562
+anchor_bottom = 1.86806
+offset_left = -1652.91
+offset_top = -1852.5
+offset_right = -1652.91
+offset_bottom = -1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 400
+text = "000000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay3" type="Sprite2D" parent="Controllers/Slider6"]
+position = Vector2(103, -21)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Title" type="RichTextLabel" parent="Controllers/Slider6/NumberDisplay3"]
+anchors_preset = -1
+anchor_left = 0.257281
+anchor_top = -1.8125
+anchor_right = 1.06978
+anchor_bottom = -1.57639
+offset_left = -988.98
+offset_top = 1852.5
+offset_right = -988.98
+offset_bottom = 1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 200
+text = "Spillway"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Slider7" type="HSlider" parent="Controllers"]
+anchors_preset = -1
+anchor_left = 0.354167
+anchor_top = 0.146605
+anchor_right = 0.532986
+anchor_bottom = 0.171296
+offset_left = 222.0
+offset_top = 200.0
+offset_right = 222.0
+offset_bottom = 200.0
+theme = SubResource("Theme_qhkhn")
+script = ExtResource("16_ha0sy")
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay" type="Sprite2D" parent="Controllers/Slider7"]
+position = Vector2(38.1113, 35.875)
+scale = Vector2(0.0386574, 0.0386574)
+texture = ExtResource("10_bb5ge")
+
+[node name="Value" type="RichTextLabel" parent="Controllers/Slider7/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.0240277
+anchor_top = 1.56292
+anchor_right = 0.576632
+anchor_bottom = 2.06569
+offset_left = -903.133
+offset_top = -1942.95
+offset_right = -903.133
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
+text = "000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Percent" type="RichTextLabel" parent="Controllers/Slider7/NumberDisplay"]
+anchors_preset = -1
+anchor_left = 0.271975
+anchor_top = 1.56292
+anchor_right = 0.460517
+anchor_bottom = 2.06569
+offset_left = -59.1924
+offset_top = -1942.95
+offset_right = -59.1924
+offset_bottom = -1942.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 600
+text = "%"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay2" type="Sprite2D" parent="Controllers/Slider7"]
+position = Vector2(142, 36)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Unit" type="RichTextLabel" parent="Controllers/Slider7/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.839806
+anchor_top = 2.375
+anchor_right = 1.01949
+anchor_bottom = 2.5
+offset_left = -1057.43
+offset_top = -2535.0
+offset_right = -1057.43
+offset_bottom = -2535.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 150
+text = "m³/s"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Value2" type="RichTextLabel" parent="Controllers/Slider7/NumberDisplay2"]
+anchors_preset = -1
+anchor_left = 0.407767
+anchor_top = 1.5625
+anchor_right = 1.0562
+anchor_bottom = 1.86806
+offset_left = -1652.91
+offset_top = -1852.5
+offset_right = -1652.91
+offset_bottom = -1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 400
+text = "000000"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="NumberDisplay3" type="Sprite2D" parent="Controllers/Slider7"]
+position = Vector2(103, -21)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("2_kdmyk")
+
+[node name="Title" type="RichTextLabel" parent="Controllers/Slider7/NumberDisplay3"]
+anchors_preset = -1
+anchor_left = 0.257281
+anchor_top = -1.8125
+anchor_right = 1.06978
+anchor_bottom = -1.57639
+offset_left = -1063.98
+offset_top = 1852.5
+offset_right = -1063.98
+offset_bottom = 1852.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.560784, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_h12l2")
+theme_override_font_sizes/normal_font_size = 200
+text = "E-Reserves"
 scroll_active = false
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
