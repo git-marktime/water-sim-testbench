@@ -32,7 +32,7 @@
 
 - [Turbine Power Coefficient](https://www.desmos.com/calculator/szporfkyqd)
 
-- [Trello](https://trello.com/b/bppNE9o1/dydroham)
+- [Gate Flow Formula](https://www.desmos.com/calculator/lue1htxwdw)
 
 ### Math Formulas Used
 
