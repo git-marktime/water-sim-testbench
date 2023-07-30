@@ -6,6 +6,6 @@ func _process(_delta):
 	var displayed_value = target_valve.VolumetricFlowRate
 	
 	$NumberDisplay/Value.text = str(new_value)
-	SimVars.handleValve(target_valve, new_value/100)
+	SimVars.handleGate(target_valve, new_value/100)
 	
 	$NumberDisplay2/Value2.text = str(snapped(displayed_value, 0.001))

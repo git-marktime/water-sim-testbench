@@ -18,7 +18,7 @@ func initReservoir(L: float, W: float, H: float, V: float):
 	return tempres
 
 func updateReservoirVolume(reservoir: Reservoir):
-	reservoir.Volume = reservoir.Length + reservoir.Width + reservoir.Height
+	reservoir.Volume = reservoir.Length * reservoir.Width * reservoir.Height
 
 func updateReservoirHeight(reservoir: Reservoir):
 	reservoir.Height = reservoir.Volume / (reservoir.Length * reservoir.Width)
@@ -86,6 +86,72 @@ func computeValve(valve: Valve, pullReservoir: Reservoir, pushReservoir: Reservo
 	else:
 		valve.Blocked = true
 
+class Gate:
+	var VolumetricFlowRate = 0.0
+	var MassFlowRate = 0.0
+	var ValvePercent = 0.0
+	var Opening
+	var Width
+	var MaxOpening
+	var PullReservoir
+	var PushReservoir
+	var Blocked = false
+
+func initGate(W: float, MAX: float, PULL: Reservoir, PUSH: Reservoir):
+	var tempgate = Gate.new()
+	tempgate.VolumetricFlowRate = 0.0
+	tempgate.MassFlowRate = 0.0
+	tempgate.ValvePercent = 0.0
+	tempgate.Opening = 0.0
+	tempgate.MaxOpening = MAX
+	tempgate.Width = W
+	tempgate.PullReservoir = PULL
+	tempgate.PushReservoir = PUSH
+	tempgate.Blocked = false
+	
+	return tempgate
+
+func updateGate(gate: Gate):
+	gate.Opening = (0 + (gate.MaxOpening - 0) * gate.ValvePercent) * gate.Width
+	gate.VolumetricFlowRate = pow(gate.Opening * 9.81 * (gate.PullReservoir.Height - gate.PushReservoir.Height)/2.0 * 0.5, 
+	0.5) 
+	gate.MassFlowRate = gate.VolumetricFlowRate * 1027
+
+func handleReservoirGateSubtractive(gate: Gate, reservoir: Reservoir):
+	if reservoir.Volume > 0:
+		gate.Blocked = false
+		reservoir.Volume -= gate.VolumetricFlowRate/Performance.get_monitor(Performance.TIME_FPS)
+		updateReservoirHeight(reservoir)
+	else:
+		gate.Blocked = true
+
+func handleReservoirGateAdditive(gate: Gate, reservoir: Reservoir):
+	if reservoir.Volume < reservoir.MaxVolume:
+		gate.Blocked = false
+		reservoir.Volume += gate.VolumetricFlowRate/Performance.get_monitor(Performance.TIME_FPS)
+		updateReservoirHeight(reservoir)
+	else:
+		gate.Blocked = true
+
+func handleGate(gate: Gate, valvePercent: float):
+	if gate.Blocked == false:
+		gate.ValvePercent = valvePercent
+		updateGate(gate)
+	else:
+		gate.ValvePercent = 0
+		updateGate(gate)
+
+func computeGate(gate: Gate):
+	if gate.Blocked == true:
+		handleGate(gate, 0)
+
+	if gate.PullReservoir.Volume > 0 and gate.PushReservoir.Volume < gate.PushReservoir.MaxVolume:
+		gate.Blocked = false
+		handleReservoirGateSubtractive(gate, gate.PullReservoir)
+		handleReservoirGateAdditive(gate, gate.PushReservoir)
+	else:
+		gate.Blocked = true
+		
 func computePowerOutput():
 	var turbine_power_coefficient = 0
 	if TurbineHall.Volume >= 100 and TurbineHall.Volume <= 750:
@@ -115,8 +181,12 @@ func computePowerOutput():
 	else:
 		DemandMet = false
 
+func reduceWaterLevel(reservoir: Reservoir, flowrate: float):
+	if reservoir.Volume > 0:
+		reservoir.Volume -= flowrate/Performance.get_monitor(Performance.TIME_FPS)
+		updateReservoirHeight(reservoir)
+
 var UpperReservoir = initReservoir(840, 1462, 90, 122_808_000)
-var SluiceGate = initValve(6, 2)
 var Penstock = initReservoir(100, 2, 0, 100)
 var TurbineInlet = initValve(5, 0.5)
 var TurbineHall = initReservoir(5, 20, 0, 1000)
@@ -126,10 +196,12 @@ var DraftTubeOutlet = initValve(4.5, 0.5)
 var LowerReservoir = initReservoir(1_530, 10, 40, 764_805)
 var PumpBackValve = initValve(2, 0.5)
 
-var Spillway = initValve(7.5, 1)
-var WATERDUMP = initReservoir(0.1, 0.1, 0, 1.79769e308)
+var WATERDUMP = initReservoir(100, 10, 0, 1.79769e308)
 var ReservePump = initValve(6, 1)
 var EmergencyReserves = initReservoir(1.79769e308, 1.79769e308, 1.79769e308, 1.79769e308)
+
+var SluiceGate = initGate(5, 3, UpperReservoir, Penstock)
+var Spillway = initGate(5, 5, LowerReservoir, WATERDUMP)
 
 var PowerOutput = 0
 var PowerDemand = randi_range(100, 800)
