@@ -5,6 +5,7 @@ func _process(_delta):
 	var decimaltruncate = 0.1
 	
 	$Value.text = str(snapped(displayvalue, decimaltruncate))
+	$NumberDisplay3/Value.text = "PERIOD: " + str(SimVars.TimeLeftInPeriod)
 	
 	if SimVars.DemandMet == true:
 		$NumberDisplay2/Value2.add_theme_color_override("default_color", Color(0.0, 0.56, 0.0))

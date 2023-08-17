@@ -7,6 +7,8 @@ class Reservoir:
 	var Volume
 	var MaxVolume
 
+var powerflipped = false
+
 func initReservoir(L: float, W: float, H: float, V: float):
 	var tempres = Reservoir.new()
 	tempres.Length = L
@@ -186,6 +188,49 @@ func reduceWaterLevel(reservoir: Reservoir, flowrate: float):
 		reservoir.Volume -= flowrate/Performance.get_monitor(Performance.TIME_FPS)
 		updateReservoirHeight(reservoir)
 
+func getCurrentPowerDemand():
+	var time = Time.get_time_dict_from_system(true)
+	
+	# Hour : Demand
+	var demand_data_dictionary = {
+		0 : randi_range(20, 40), # 24:00 / 00:00
+		1 : randi_range(30, 50), # 01:00
+		2 : randi_range(70, 100), # 02:00
+		3 : randi_range(100, 150), # 03:00
+		4 : randi_range(150, 190), # 04:00
+		5 : randi_range(230, 260), # 05:00
+		6 : randi_range(360, 410), # 06:00
+		7 : randi_range(400, 500), # 07:00
+		8 : randi_range(400, 500), # 08:00
+		9 : randi_range(400, 500), # 09:00
+		10 : randi_range(400, 500), # 10:00
+		11 : randi_range(400, 500), # 11:00
+		12 : randi_range(420, 550), # 12:00
+		13 : randi_range(420, 550), # 13:00
+		14 : randi_range(420, 550), # 14:00
+		15 : randi_range(420, 550), # 15:00
+		16 : randi_range(420, 550), # 16:00
+		17 : randi_range(420, 550), # 17:00
+		18 : randi_range(450, 600), # 18:00
+		19 : randi_range(420, 550), # 19:00
+		20 : randi_range(350, 400), # 20:00
+		21 : randi_range(250, 300), # 21:00
+		22 : randi_range(70, 160), # 22:00
+		23 : randi_range(40, 700) # 23:00
+	}
+	
+	return demand_data_dictionary.get(time.hour)
+
+func doPowerDemandTick():
+	var time = Time.get_time_dict_from_system(true)
+	TimeLeftInPeriod = 60 - time.minute
+	if TimeLeftInPeriod == 60:
+		if powerflipped == false:
+			powerflipped = true
+			PowerDemand = getCurrentPowerDemand()
+	else:
+		powerflipped = false
+
 var UpperReservoir = initReservoir(840, 1462, 90, 122_808_000)
 var Penstock = initReservoir(100, 2, 0, 100)
 var TurbineInlet = initValve(5, 0.5)
@@ -204,6 +249,7 @@ var SluiceGate = initGate(5, 3, UpperReservoir, Penstock)
 var Spillway = initGate(5, 5, LowerReservoir, WATERDUMP)
 
 var PowerOutput = 0
-var PowerDemand = randi_range(100, 800)
+var PowerDemand = getCurrentPowerDemand()
+var TimeLeftInPeriod = 81
 var TurbineEfficiency = 0
 var DemandMet = false

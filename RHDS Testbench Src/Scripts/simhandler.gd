@@ -16,4 +16,4 @@ func _process(_delta):
 	SimVars.computeValve(SimVars.ReservePump, SimVars.EmergencyReserves, SimVars.UpperReservoir)
 	SimVars.reduceWaterLevel(SimVars.WATERDUMP, 1.0)
 	
-	SimVars.computePowerOutput()
+	SimVars.doPowerDemandTick()
