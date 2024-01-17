@@ -12,7 +12,7 @@
 
 - [ ] Annunciators and Warning System
 
-- [ ] Variable Power Demand
+- [x] Variable Power Demand
 
 ### Resources Used
 
